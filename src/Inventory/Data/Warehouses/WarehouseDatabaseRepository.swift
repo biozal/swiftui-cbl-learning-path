@@ -9,11 +9,10 @@ import Foundation
 import CouchbaseLiteSwift
 import Combine
 
-class WarehouseDatabaseRepository 
-    : WarehouseRepository {
+@RepositoryActor class WarehouseDatabaseRepository
+: WarehouseRepository {
     
     var databaseManager: DatabaseManager
-    
     let countKey = "count"
     
     init(databaseManager: DatabaseManager){
@@ -21,22 +20,43 @@ class WarehouseDatabaseRepository
     }
     
     func count() async -> Int {
-        let task = Task(priority: .background) { [weak self] in
-            var count = 0
-            do {
-                if let dbManager = self?.databaseManager,
-                   let countKey = self?.countKey,
-                   let db = dbManager.warehousesDatabase {
-                    let query = "SELECT COUNT (*) as \(countKey) FROM \(dbManager.warehouseScopeName).\(dbManager.warehouseCollectionName)"
-                    let results = try db.createQuery(query).execute().allResults()
-                    count = results[0].int(forKey: countKey)
-                }
-            } catch {
-                print ("Error trying to count user profiles: \(error)")
+        var count = 0
+        do {
+            if let db = databaseManager.warehousesDatabase {
+                let query = "SELECT COUNT (*) as \(countKey) FROM \(databaseManager.warehouseScopeName).\(databaseManager.warehouseCollectionName)"
+                let results = try db.createQuery(query).execute().allResults()
+                count = results[0].int(forKey: countKey)
             }
-            return count
+        } catch {
+            print ("Error trying to count user profiles: \(error)")
         }
-        return await task.value
+        return count
     }
+    
+    /*
+     func count() async -> Int {
+     await withCheckedContinuation {continuation in
+     let worker = BackgroundWorker()
+     worker.enqueue { [databaseManager, countKey] in
+     var count = 0
+     do {
+     if let db = databaseManager.warehousesDatabase {
+     let query = "SELECT COUNT (*) as \(countKey) FROM \(databaseManager.warehouseScopeName).\(databaseManager.warehouseCollectionName)"
+     let results = try db.createQuery(query).execute().allResults()
+     count = results[0].int(forKey: countKey)
+     }
+     } catch {
+     print ("Error trying to count user profiles: \(error)")
+     }
+     continuation.resume(returning: count)
+     }
+     }
+     }
+     */
+    
+    /*
+     func get() async -> [Warehouse] {
+     }
+     */
     
 }

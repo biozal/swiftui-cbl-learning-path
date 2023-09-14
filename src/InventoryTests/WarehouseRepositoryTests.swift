@@ -23,7 +23,7 @@ final class WarehouseRepositoryTests
        
         // MARK: testWarehouseCount act
         // open, create collections, close the database, and reopen to make sure existing collections stil are valid
-        let repository = WarehouseDatabaseRepository(databaseManager: dbManager)
+        let repository = await WarehouseDatabaseRepository(databaseManager: dbManager)
         let count = await repository.count()
                 
         // MARK: testWarehouseCount - assert

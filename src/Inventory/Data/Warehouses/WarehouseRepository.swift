@@ -12,4 +12,5 @@ import Foundation
 protocol WarehouseRepository {
     
     func count() async -> Int
+    
 }

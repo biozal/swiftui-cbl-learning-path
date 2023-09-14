@@ -38,6 +38,10 @@
 		0D0AC5EF2A9E382E000AD8E4 /* UserProfileRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0AC5D62A9E1CBB000AD8E4 /* UserProfileRepository.swift */; };
 		0D0AC5F02A9E3831000AD8E4 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0AC5D82A9E1D8B000AD8E4 /* DatabaseManager.swift */; };
 		0D0AC5F22A9E3EAE000AD8E4 /* DatababaseManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0AC5F12A9E3EAE000AD8E4 /* DatababaseManagerTests.swift */; };
+		0D21955D2AB1012A0080EB1B /* BackgroundWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D21955C2AB1012A0080EB1B /* BackgroundWorker.swift */; };
+		0D21955E2AB101370080EB1B /* BackgroundWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D21955C2AB1012A0080EB1B /* BackgroundWorker.swift */; };
+		0D2195602AB1195E0080EB1B /* RepositoryActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D21955F2AB1195E0080EB1B /* RepositoryActor.swift */; };
+		0D2195612AB11B560080EB1B /* RepositoryActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D21955F2AB1195E0080EB1B /* RepositoryActor.swift */; };
 		0D4E20D92AAA6B80001CD83F /* pbwarehouses.cblite2 in Resources */ = {isa = PBXBuildFile; fileRef = 0D4E20D82AAA6B80001CD83F /* pbwarehouses.cblite2 */; };
 		0DBEF4B22A9FEAC600824760 /* UserProfileRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEF4B12A9FEAC600824760 /* UserProfileRepositoryTests.swift */; };
 		0DBEF4B42A9FEB5100824760 /* BaseDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEF4B32A9FEB5100824760 /* BaseDatabaseTests.swift */; };
@@ -90,6 +94,8 @@
 		0D0AC5E22A9E2F77000AD8E4 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		0D0AC5E42A9E369D000AD8E4 /* AuthenticationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationServiceTests.swift; sourceTree = "<group>"; };
 		0D0AC5F12A9E3EAE000AD8E4 /* DatababaseManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatababaseManagerTests.swift; sourceTree = "<group>"; };
+		0D21955C2AB1012A0080EB1B /* BackgroundWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundWorker.swift; sourceTree = "<group>"; };
+		0D21955F2AB1195E0080EB1B /* RepositoryActor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryActor.swift; sourceTree = "<group>"; };
 		0D4E20D82AAA6B80001CD83F /* pbwarehouses.cblite2 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = pbwarehouses.cblite2; sourceTree = "<group>"; };
 		0DBEF4B12A9FEAC600824760 /* UserProfileRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRepositoryTests.swift; sourceTree = "<group>"; };
 		0DBEF4B32A9FEB5100824760 /* BaseDatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDatabaseTests.swift; sourceTree = "<group>"; };
@@ -152,6 +158,7 @@
 				0D0AC5C72A9E18FE000AD8E4 /* Models */,
 				0D4E20DA2AAA6B95001CD83F /* Prebuilt */,
 				0D0AC5DF2A9E2D8E000AD8E4 /* Services */,
+				0D21955B2AB101070080EB1B /* Utils */,
 				0D0AC59C2A9E17DB000AD8E4 /* InventoryApp.swift */,
 				0D0AC59E2A9E17DB000AD8E4 /* ContentView.swift */,
 				0D0AC5A02A9E17DD000AD8E4 /* Assets.xcassets */,
@@ -210,6 +217,7 @@
 				0DDECDDC2AA75D17006EDBB4 /* Warehouses */,
 				0D0AC5D52A9E1CA5000AD8E4 /* Userprofile */,
 				0D0AC5D82A9E1D8B000AD8E4 /* DatabaseManager.swift */,
+				0D21955F2AB1195E0080EB1B /* RepositoryActor.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -230,6 +238,14 @@
 				0D0AC5E22A9E2F77000AD8E4 /* AuthenticationService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		0D21955B2AB101070080EB1B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0D21955C2AB1012A0080EB1B /* BackgroundWorker.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		0D4E20DA2AAA6B95001CD83F /* Prebuilt */ = {
@@ -397,7 +413,9 @@
 				0D0AC5CD2A9E19FD000AD8E4 /* StockItem.swift in Sources */,
 				0DDECDE12AA75DAE006EDBB4 /* WarehouseDatabaseRepository.swift in Sources */,
 				0D0AC59D2A9E17DB000AD8E4 /* InventoryApp.swift in Sources */,
+				0D2195602AB1195E0080EB1B /* RepositoryActor.swift in Sources */,
 				0D0AC5D32A9E1BCF000AD8E4 /* Audit.swift in Sources */,
+				0D21955D2AB1012A0080EB1B /* BackgroundWorker.swift in Sources */,
 				0D0AC5D72A9E1CBB000AD8E4 /* UserProfileRepository.swift in Sources */,
 				0D0AC5CF2A9E1AAF000AD8E4 /* Project.swift in Sources */,
 				0D0AC5E32A9E2F77000AD8E4 /* AuthenticationService.swift in Sources */,
@@ -413,6 +431,8 @@
 				0D0AC5EE2A9E382E000AD8E4 /* UserProfileDatabaseRepository.swift in Sources */,
 				0D0AC5F02A9E3831000AD8E4 /* DatabaseManager.swift in Sources */,
 				0D0AC5E52A9E369D000AD8E4 /* AuthenticationServiceTests.swift in Sources */,
+				0D21955E2AB101370080EB1B /* BackgroundWorker.swift in Sources */,
+				0D2195612AB11B560080EB1B /* RepositoryActor.swift in Sources */,
 				0DDECDE22AA75DAE006EDBB4 /* WarehouseDatabaseRepository.swift in Sources */,
 				0D0AC5F22A9E3EAE000AD8E4 /* DatababaseManagerTests.swift in Sources */,
 				0D0AC5EB2A9E3827000AD8E4 /* Location.swift in Sources */,
