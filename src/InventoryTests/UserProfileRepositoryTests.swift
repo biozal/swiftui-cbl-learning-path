@@ -23,8 +23,8 @@ final class UserProfileRepositoryTests
        
         // MARK: testUserProfileCountZero act
         // open, create collections, close the database, and reopen to make sure existing collections stil are valid
-        let repository = UserProfileDatabaseRepository(databaseManager: dbManager)
-        let count = await repository.count()
+        let repository = await UserProfileDatabaseRepository(databaseManager: dbManager)
+        let count =  try await repository.count()
                 
         // MARK: testUserProfileCountZero - assert
         XCTAssertNotNil(count)
@@ -48,7 +48,7 @@ final class UserProfileRepositoryTests
        
         // MARK: testUserProfileCountByTeams act
         // create two users for team1 and one user for a different team and make sure team1 count is 2 and the other team is 1
-        let repository = UserProfileDatabaseRepository(databaseManager: dbManager)
+        let repository = await UserProfileDatabaseRepository(databaseManager: dbManager)
         
         var dataUser1: [String: Any] = [:]
         dataUser1[repository.emailKey] = username1
@@ -58,9 +58,9 @@ final class UserProfileRepositoryTests
         dataUser2[repository.emailKey] = username2
         dataUser2[repository.teamKey] = currentUser1?.team
         
-        let _ = await repository.save(data: dataUser1)
-        let _ = await repository.save(data: dataUser2)
-        let countTeam1 = await repository.count()
+        let _ = try await repository.save(data: dataUser1)
+        let _ = try await repository.save(data: dataUser2)
+        let countTeam1 = try await repository.count()
         
         //close database and open new user
         dbManager.closeDatabases()
@@ -74,8 +74,8 @@ final class UserProfileRepositoryTests
         dataUser3[repository.emailKey] = username3
         dataUser3[repository.teamKey] = currentUser3?.team
         
-        let _ = await repository.save(data: dataUser3)
-        let countTeam2 = await repository.count()
+        let _ = try await repository.save(data: dataUser3)
+        let countTeam2 = try await repository.count()
         
         //clean up other team databases
         dbManager.deleteDatabases()
@@ -91,14 +91,14 @@ final class UserProfileRepositoryTests
         
         // MARK: testNotSaveUserProfileWithoutDBManagerSetup arrange
         let dbManager = DatabaseManager()
-        let repository = UserProfileDatabaseRepository(databaseManager: dbManager)
+        let repository = await UserProfileDatabaseRepository(databaseManager: dbManager)
         
         // MARK: testNotSaveUserProfileWithoutDBManagerSetup act
         // create a new user and then close and open up the database to see if we get the same values back
         var data: [String: Any] = [:]
         data[repository.emailKey] =  ""
         
-        let didSave = await repository.save(data: data)
+        let didSave = try await repository.save(data: data)
         
         // MARK: testNotSaveUserProfileWithoutDBManagerSetup assert
         XCTAssertFalse(didSave, "didSave should be FALSE because dbManager isn't setup")
@@ -118,14 +118,14 @@ final class UserProfileRepositoryTests
         let currentUser = authenticationService.getCurrentUser()
         let dbManager = DatabaseManager()
         await dbManager.initializeDatabases(user: currentUser!)
-        let repository = UserProfileDatabaseRepository(databaseManager: dbManager)
+        let repository = await UserProfileDatabaseRepository(databaseManager: dbManager)
         
         // MARK: testNotSaveUserProfileWithoutEmail act
         // create a new user and then close and open up the database to see if we get the same values back
         var results: [String: Any] = [:]
         results[repository.emailKey] =  ""
         
-        let didSave = await repository.save(data: results)
+        let didSave = try await repository.save(data: results)
         
         // MARK: testNotSaveUserProfileWithoutEmail assert
         XCTAssertFalse(didSave, "didSave should be FALSE because no email is provided when trying to save user profile to the database")
@@ -148,7 +148,7 @@ final class UserProfileRepositoryTests
         let currentUser = authenticationService.getCurrentUser()
         let dbManager = DatabaseManager()
         await dbManager.initializeDatabases(user: currentUser!)
-        let repository = UserProfileDatabaseRepository(databaseManager: dbManager)
+        let repository = await UserProfileDatabaseRepository(databaseManager: dbManager)
         
         #if os(macOS)
             let profileImage = NSImage(systemSymbolName: "multiply.circle.fill", accessibilityDescription: "")
@@ -170,7 +170,7 @@ final class UserProfileRepositoryTests
         results[repository.teamKey] = currentUser?.team
         results[repository.imageDataKey] = profileImageData
         
-        let didSave = await repository.save(data: results)
+        let didSave = try await repository.save(data: results)
         
         //close and open the database to make sure the document isn't cached
         dbManager.closeDatabases()
@@ -179,7 +179,7 @@ final class UserProfileRepositoryTests
         await dbManager.initializeDatabases(user: currentUser!)
         
         //get the user profile document previously saved
-        let userData = await repository.get(currentUser: email)
+        let userData = try await repository.get(currentUser: email)
         
         let userFirstName = userData[repository.givenNameKey] as! String
         let userLastName = userData[repository.surnameKey] as! String

@@ -46,6 +46,10 @@
 		0DBEF4B22A9FEAC600824760 /* UserProfileRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEF4B12A9FEAC600824760 /* UserProfileRepositoryTests.swift */; };
 		0DBEF4B42A9FEB5100824760 /* BaseDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBEF4B32A9FEB5100824760 /* BaseDatabaseTests.swift */; };
 		0DBEF4B52AA0028F00824760 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D0AC5A02A9E17DD000AD8E4 /* Assets.xcassets */; };
+		0DC1A1702AB3C2B6004A2440 /* ProjectRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC1A16F2AB3C2B6004A2440 /* ProjectRepository.swift */; };
+		0DC1A1712AB3C2BD004A2440 /* ProjectRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC1A16F2AB3C2B6004A2440 /* ProjectRepository.swift */; };
+		0DC1A1732AB3C2CF004A2440 /* ProjectDatabaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC1A1722AB3C2CF004A2440 /* ProjectDatabaseRepository.swift */; };
+		0DC1A1742AB3C2CF004A2440 /* ProjectDatabaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC1A1722AB3C2CF004A2440 /* ProjectDatabaseRepository.swift */; };
 		0DDECDDE2AA75D6B006EDBB4 /* WarehouseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDECDDD2AA75D6B006EDBB4 /* WarehouseRepository.swift */; };
 		0DDECDDF2AA75D6B006EDBB4 /* WarehouseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDECDDD2AA75D6B006EDBB4 /* WarehouseRepository.swift */; };
 		0DDECDE12AA75DAE006EDBB4 /* WarehouseDatabaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDECDE02AA75DAE006EDBB4 /* WarehouseDatabaseRepository.swift */; };
@@ -99,6 +103,8 @@
 		0D4E20D82AAA6B80001CD83F /* pbwarehouses.cblite2 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = pbwarehouses.cblite2; sourceTree = "<group>"; };
 		0DBEF4B12A9FEAC600824760 /* UserProfileRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRepositoryTests.swift; sourceTree = "<group>"; };
 		0DBEF4B32A9FEB5100824760 /* BaseDatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDatabaseTests.swift; sourceTree = "<group>"; };
+		0DC1A16F2AB3C2B6004A2440 /* ProjectRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectRepository.swift; sourceTree = "<group>"; };
+		0DC1A1722AB3C2CF004A2440 /* ProjectDatabaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDatabaseRepository.swift; sourceTree = "<group>"; };
 		0DDECDDD2AA75D6B006EDBB4 /* WarehouseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseRepository.swift; sourceTree = "<group>"; };
 		0DDECDE02AA75DAE006EDBB4 /* WarehouseDatabaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseDatabaseRepository.swift; sourceTree = "<group>"; };
 		0DDECDE62AA761AF006EDBB4 /* WarehouseRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseRepositoryTests.swift; sourceTree = "<group>"; };
@@ -214,6 +220,7 @@
 		0D0AC5D42A9E1C90000AD8E4 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				0DC1A16E2AB3C2A1004A2440 /* Projects */,
 				0DDECDDC2AA75D17006EDBB4 /* Warehouses */,
 				0D0AC5D52A9E1CA5000AD8E4 /* Userprofile */,
 				0D0AC5D82A9E1D8B000AD8E4 /* DatabaseManager.swift */,
@@ -254,6 +261,15 @@
 				0D4E20D82AAA6B80001CD83F /* pbwarehouses.cblite2 */,
 			);
 			path = Prebuilt;
+			sourceTree = "<group>";
+		};
+		0DC1A16E2AB3C2A1004A2440 /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				0DC1A16F2AB3C2B6004A2440 /* ProjectRepository.swift */,
+				0DC1A1722AB3C2CF004A2440 /* ProjectDatabaseRepository.swift */,
+			);
+			path = Projects;
 			sourceTree = "<group>";
 		};
 		0DDECDDC2AA75D17006EDBB4 /* Warehouses */ = {
@@ -406,6 +422,7 @@
 				0D0AC5CB2A9E194F000AD8E4 /* User.swift in Sources */,
 				0DDECDDE2AA75D6B006EDBB4 /* WarehouseRepository.swift in Sources */,
 				0D0AC5DE2A9E2A96000AD8E4 /* UserProfileDatabaseRepository.swift in Sources */,
+				0DC1A1702AB3C2B6004A2440 /* ProjectRepository.swift in Sources */,
 				0D0AC59F2A9E17DB000AD8E4 /* ContentView.swift in Sources */,
 				0D0AC5E12A9E2DBA000AD8E4 /* MockAuthenticationService.swift in Sources */,
 				0D0AC5D92A9E1D8B000AD8E4 /* DatabaseManager.swift in Sources */,
@@ -418,6 +435,7 @@
 				0D21955D2AB1012A0080EB1B /* BackgroundWorker.swift in Sources */,
 				0D0AC5D72A9E1CBB000AD8E4 /* UserProfileRepository.swift in Sources */,
 				0D0AC5CF2A9E1AAF000AD8E4 /* Project.swift in Sources */,
+				0DC1A1732AB3C2CF004A2440 /* ProjectDatabaseRepository.swift in Sources */,
 				0D0AC5E32A9E2F77000AD8E4 /* AuthenticationService.swift in Sources */,
 				0D0AC5D12A9E1B59000AD8E4 /* Location.swift in Sources */,
 			);
@@ -445,6 +463,8 @@
 				0DBEF4B42A9FEB5100824760 /* BaseDatabaseTests.swift in Sources */,
 				0DBEF4B22A9FEAC600824760 /* UserProfileRepositoryTests.swift in Sources */,
 				0D0AC5EC2A9E3827000AD8E4 /* Warehouse.swift in Sources */,
+				0DC1A1742AB3C2CF004A2440 /* ProjectDatabaseRepository.swift in Sources */,
+				0DC1A1712AB3C2BD004A2440 /* ProjectRepository.swift in Sources */,
 				0D0AC5E72A9E381F000AD8E4 /* AuthenticationService.swift in Sources */,
 				0D0AC5ED2A9E3827000AD8E4 /* Audit.swift in Sources */,
 			);

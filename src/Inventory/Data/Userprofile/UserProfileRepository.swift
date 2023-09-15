@@ -9,7 +9,7 @@ import Foundation
 
 protocol UserProfileRepository {
     
-    func count() async -> Int
-    func get(currentUser: String) async -> [String: Any]
-    func save(data: [String: Any]) async -> Bool
+    func count() async throws -> Int
+    func get(currentUser: String)  async throws -> [String: Any]
+    func save(data: [String: Any])  async throws -> Bool
 }

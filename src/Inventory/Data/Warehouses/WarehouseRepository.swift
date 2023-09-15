@@ -11,6 +11,7 @@ import Foundation
 
 protocol WarehouseRepository {
     
-    func count() async -> Int
-    
+    func count() async throws -> Int
+    func get() async throws -> [Warehouse]
+    func getByCityState(city: String, state: String?) async throws -> [Warehouse]
 }
